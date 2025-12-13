@@ -3,3 +3,8 @@
 @use './layout/layout.scss';
 @use 'primeicons/primeicons.css';
 @use './demo/demo.scss';
+
+@import "@mescius/activereportsjs/styles/ar-js-ui.css";
+@import "@mescius/activereportsjs/styles/ar-js-viewer.css";
+@import "@mescius/activereportsjs/styles/ar-js-designer.css";
+

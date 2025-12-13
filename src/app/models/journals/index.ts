@@ -1,0 +1,212 @@
+import { IDropDownAccounts, IFunds } from "..";
+
+import { IGLType } from "../types";
+import { IParty } from "../party";
+
+export interface IJournalDetailDelete {
+  journal_id: number,
+  journal_subid: number
+
+}
+
+
+export interface IJournalHeader {
+  journal_id?: number,
+  description: string,
+  booked?: boolean,
+  due_date: string,
+  booked_date?: string,
+  booked_user: string,
+  create_date?: string,
+  create_user?: string,
+  period: number,
+  period_year: number,
+  current_period?: string,
+  transaction_date: string,
+  status?: string,
+  type: string,
+  sub_type?: string,
+  amount: number,
+  party_id: string,
+  invoice_no: string,
+  template_ref: number,
+  template_name: string,
+  credit?: number,
+  debit?: number
+}
+
+
+export interface IJournalData {
+  journalHeader: IJournalHeader;
+  accounts: IDropDownAccounts[];
+  journalTypes: IGLType[];
+  templates: IJournalTemplate[];
+  funds?: IFunds[];
+  parties: IParty[];
+  journalDetails?: IJournalDetail[];
+}
+
+export interface IJournalTransactions {
+  journal_id?: number,
+  description: string,
+  booked?: boolean,
+  due_date: string,
+  booked_date?: string,
+  booked_user: string,
+  create_date?: string,
+  create_user?: string,
+  period: number,
+  period_year: number,
+  current_period?: string,
+  transaction_date: string,
+  status?: string,
+  type: string,
+  sub_type?: string,
+  amount: number,
+  party_id: string,
+  invoice_no: string,
+  template_name: string,
+  template_ref: number,
+  credit?: number,
+  debit?: number
+  details: Details
+}
+export interface Details {
+  detail: Detail[]
+}
+
+
+export interface Detail {
+  journal_id: number
+  journal_subid: number
+  account: number
+  child: number
+  sub_type: string
+  description: string
+  debit: number
+  credit: number
+  create_date: string
+  create_user: string
+  fund: string
+  reference: string
+}
+
+
+export interface ITemplateParams {
+  journal_id: number,
+  template_description: string
+}
+
+export interface ITBParams {
+  period: number,
+  year: number
+}
+
+export interface ITBStartEndDate {
+  start_date: string,
+  end_date: string
+  status: string
+}
+
+export interface IStartEndDate {
+  start_date: string,
+  end_date: string
+}
+
+export interface IJournalDetail {
+  journal_id: number,
+  journal_subid: number,
+  account: number,
+  child: number,
+  child_desc?: string,
+  fund: string,
+  sub_type: string,
+  description: string,
+  reference: string,
+  debit: number,
+  credit: number,
+  create_date: string,
+  create_user: string,
+  period?: number,
+  period_year?: number,
+  template_name?: string,
+}
+
+export interface IJournalDetailUpdate {
+  journal_id: number,
+  journal_subid: number,
+  account: number,
+  child: number,
+  fund: string,
+  sub_type: string,
+  description: string,
+  reference: string,
+  debit: number,
+  credit: number,
+  create_date: string,
+  create_user: string,
+  child_desc?: string
+}
+
+export interface ITransactionDate {
+  start_date: string,
+  end_date: string
+}
+
+export interface IArtifacts {
+  id?: number,
+  journal_id: number,
+  reference: string,
+  description: string,
+  location: string,
+  date_created: string,
+  user_created: string
+}
+
+export interface IReadJournalDetailsParams {
+  child: number;
+  period: number;
+  period_year: number;
+}
+
+
+export interface IJournalTemplate {
+  template_ref: number,
+  template_name: string,
+  description: string,
+  journal_type: string,
+  create_date: string,
+  create_user: string,
+}
+
+export interface IJournalDetailTemplate {
+  template_ref: number,
+  journal_sub: number,
+  description: string,
+  account: number,
+  child: number,
+  sub_type: string,
+  fund: string,
+  debit: number,
+  credit: number,
+  reference: string
+}
+
+
+export interface IJournalViewDetails {
+  period?: number,
+  period_year?: number,
+  journal_id: number,
+  journal_subid: number,
+  account: number,
+  child: number,
+  description: string,
+  sub_type: string,
+  debit: number,
+  credit: number,
+  create_date: Date,
+  create_user: string,
+  fund: string,
+  reference: string,
+}
+

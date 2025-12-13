@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { StyleClassModule } from 'primeng/styleclass';
 import { Router, RouterModule } from '@angular/router';
-import { RippleModule } from 'primeng/ripple';
+
+import {AppFloatingConfigurator} from "app/layout/component/app.floatingconfigurator";
 import { ButtonModule } from 'primeng/button';
-import {AppFloatingConfigurator} from "@/layout/component/app.floatingconfigurator";
+import { Component } from '@angular/core';
+import { RippleModule } from 'primeng/ripple';
+import { StyleClassModule } from 'primeng/styleclass';
 
 @Component({
     selector: 'topbar-widget',

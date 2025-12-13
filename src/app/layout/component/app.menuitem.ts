@@ -51,7 +51,7 @@ import { LayoutService } from '../service/layout.service';
               }
             </a>
           }
-        
+
           @if (item.items && item.visible !== false) {
             <ul [@children]="submenuAnimation">
               @for (child of item.items; track child; let i = $index) {

@@ -1,21 +1,25 @@
-import { Routes } from '@angular/router';
 import { ButtonDemo } from './buttondemo';
 import { ChartDemo } from './chartdemo';
 import { FileDemo } from './filedemo';
 import { FormLayoutDemo } from './formlayoutdemo';
 import { InputDemo } from './inputdemo';
+import JdRpt from './jdrpt';
 import { ListDemo } from './listdemo';
 import { MediaDemo } from './mediademo';
+import { MenuDemo } from './menudemo';
 import { MessagesDemo } from './messagesdemo';
 import { MiscDemo } from './miscdemo';
-import { PanelsDemo } from './panelsdemo';
-import { TimelineDemo } from './timelinedemo';
-import { TableDemo } from './tabledemo';
 import { OverlayDemo } from './overlaydemo';
+import { PanelsDemo } from './panelsdemo';
+import { Reporting } from './reporting';
+import { Routes } from '@angular/router';
+import { TableDemo } from './tabledemo';
+import { TimelineDemo } from './timelinedemo';
 import { TreeDemo } from './treedemo';
-import { MenuDemo } from './menudemo';
 
 export default [
+    { path: 'reporting', data: { breadcrumb: 'Reporting' }, component: Reporting },
+    { path: 'jdrpt', data: { breadcrumb: 'JD' }, component: JdRpt },
     { path: 'button', data: { breadcrumb: 'Button' }, component: ButtonDemo },
     { path: 'charts', data: { breadcrumb: 'Charts' }, component: ChartDemo },
     { path: 'file', data: { breadcrumb: 'File' }, component: FileDemo },

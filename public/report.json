@@ -1,0 +1,940 @@
+{
+    "Name": "Distribution Listing by Period and Date11",
+    "Width": "0cm",
+    "ConsumeContainerWhitespace": true,
+    "Layers": [
+        {
+            "Name": "default"
+        }
+    ],
+    "CustomProperties": [
+        {
+            "Name": "DisplayType",
+            "Value": "Page"
+        },
+        {
+            "Name": "SizeType",
+            "Value": "Default"
+        },
+        {
+            "Name": "CollapseWhiteSpace",
+            "Value": "True"
+        },
+        {
+            "Name": "DataSet_Data_Set_Fields",
+            "Value": "{\"account\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"child\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"period\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"description\":{\"dataType\":\"String\"},\"opening_balance\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"debit_balance\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"credit_balance\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"closing_balance\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"},\"update_date\":{\"dataType\":\"DateTime\"},\"created_user\":{\"dataType\":\"String\"},\"period_year\":{\"aggregate\":\"Sum\",\"dataType\":\"Float\"}}"
+        }
+    ],
+    "Version": "10.0.2",
+    "Page": {
+        "PageWidth": "8.5in",
+        "PageHeight": "11in",
+        "RightMargin": "0in",
+        "LeftMargin": "0in",
+        "TopMargin": "0in",
+        "BottomMargin": "0in",
+        "Columns": 1,
+        "ColumnSpacing": "0.5in",
+        "PaperOrientation": "Landscape"
+    },
+    "DataSources": [
+        {
+            "Name": "distribution",
+            "ConnectionProperties": {
+                "DataProvider": "JSON",
+                "ConnectString": "endpoint=http://localhost:8080/dist"
+            }
+        }
+    ],
+    "Themes": [
+        "Themes/Cool.rdlx-json-theme"
+    ],
+    "ReportSections": [
+        {
+            "Type": "Continuous",
+            "Name": "ContinuousSection1",
+            "Page": {
+                "PageWidth": "29.7cm",
+                "PageHeight": "21cm",
+                "RightMargin": "0.25in",
+                "LeftMargin": "0.25in",
+                "TopMargin": "0.25in",
+                "BottomMargin": "1in",
+                "Columns": 1,
+                "ColumnSpacing": "0in",
+                "PaperOrientation": "Landscape"
+            },
+            "Width": "11.1459in",
+            "PageHeader": {
+                "Height": "1.1563in",
+                "ReportItems": [
+                    {
+                        "Type": "textbox",
+                        "Name": "TextBox15",
+                        "ZIndex": 1,
+                        "CanGrow": true,
+                        "KeepTogether": true,
+                        "Value": "=Globals!PageNumber",
+                        "Style": {
+                            "PaddingLeft": "2pt",
+                            "PaddingRight": "2pt",
+                            "PaddingTop": "2pt",
+                            "PaddingBottom": "2pt",
+                            "TextAlign": "Right"
+                        },
+                        "Left": "9.5625in",
+                        "Top": "0.0417in",
+                        "Width": "1.5834in",
+                        "Height": "0.2813in"
+                    },
+                    {
+                        "Type": "richtext",
+                        "Name": "RichText1",
+                        "ZIndex": 2,
+                        "CanGrow": true,
+                        "Style": {
+                            "FontSize": "16pt",
+                            "PaddingLeft": "2pt",
+                            "PaddingRight": "2pt",
+                            "PaddingTop": "2pt",
+                            "PaddingBottom": "2pt",
+                            "VerticalAlign": "Middle"
+                        },
+                        "MarkupType": "HTML",
+                        "Value": "Trial Balance by Period",
+                        "Top": "0.3855in",
+                        "Width": "3.9271in",
+                        "Height": "0.4063in"
+                    },
+                    {
+                        "Type": "richtext",
+                        "Name": "RichText2",
+                        "ZIndex": 3,
+                        "CanGrow": true,
+                        "Style": {
+                            "FontSize": "16pt",
+                            "PaddingLeft": "2pt",
+                            "PaddingRight": "2pt",
+                            "PaddingTop": "2pt",
+                            "PaddingBottom": "2pt",
+                            "VerticalAlign": "Middle"
+                        },
+                        "MarkupType": "HTML",
+                        "Value": "Noble Ledger Ltd.",
+                        "Width": "3.9271in",
+                        "Height": "0.4063in"
+                    }
+                ],
+                "Style": {
+                    "BackgroundColor": "=Theme.Colors(3,1)"
+                }
+            },
+            "Body": {
+                "Height": "1.4865in",
+                "ReportItems": [
+                    {
+                        "Type": "table",
+                        "Name": "Table1",
+                        "ZIndex": 3,
+                        "DataSetName": "DataSet",
+                        "TableColumns": [
+                            {
+                                "Width": "0.8021in"
+                            },
+                            {
+                                "Width": "4.6458in"
+                            },
+                            {
+                                "Width": "1.3125in"
+                            },
+                            {
+                                "Width": "3.4cm"
+                            },
+                            {
+                                "Width": "1.2811in"
+                            },
+                            {
+                                "Width": "1.448in"
+                            }
+                        ],
+                        "Header": {
+                            "TableRows": [
+                                {
+                                    "Height": "0.25in",
+                                    "TableCells": [
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox1",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Account",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Width": "0.8021in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox2",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Description",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Width": "4.6458in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox14",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Open",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Right",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Width": "1.3125in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox13",
+                                                "DataElementName": "TextBox1",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Debit",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Right",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Left": "0cm",
+                                                "Top": "0cm",
+                                                "Width": "3.4cm",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox5",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Credit",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Right",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Width": "1.2811in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox4",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Closing",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Right",
+                                                    "TextDecoration": "Underline"
+                                                },
+                                                "Width": "1.448in",
+                                                "Height": "0.25in"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "RepeatOnNewPage": true
+                        },
+                        "TableGroups": [
+                            {
+                                "Group": {
+                                    "Name": "Table1_TableGroup1",
+                                    "GroupExpressions": [
+                                        "=Fields!account.Value"
+                                    ]
+                                },
+                                "Header": {
+                                    "TableRows": [
+                                        {
+                                            "Height": "0.327cm",
+                                            "TableCells": [
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox20",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "0.8021in",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox21",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "4.6458in",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox22",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.3125in",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox23",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "3.4cm",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox24",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.2811in",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox25",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.448in",
+                                                        "Height": "0.327cm"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "RepeatOnNewPage": true
+                                },
+                                "Footer": {
+                                    "TableRows": [
+                                        {
+                                            "Height": "0.75cm",
+                                            "TableCells": [
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox26",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "0.8021in",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox27",
+                                                        "DataElementName": "TextBox1",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Value": "Sub total ",
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt",
+                                                            "TextAlign": "Right",
+                                                            "VerticalAlign": "Middle"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "4.6458in",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox28",
+                                                        "DataElementName": "opening_balance",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Value": "=Sum(Fields!opening_balance.Value)",
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt",
+                                                            "Format": "n2",
+                                                            "TextAlign": "Right",
+                                                            "VerticalAlign": "Middle",
+                                                            "BackgroundColor": "=Theme.Colors(2,5)"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.3125in",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox29",
+                                                        "DataElementName": "debit_balance",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Value": "=Sum(Fields!debit_balance.Value)",
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt",
+                                                            "Format": "n2",
+                                                            "TextAlign": "Right",
+                                                            "VerticalAlign": "Middle",
+                                                            "BackgroundColor": "#d3d3d3d"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "3.4cm",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox30",
+                                                        "DataElementName": "credit_balance",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Value": "=Sum(Fields!credit_balance.Value)",
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt",
+                                                            "Format": "n2",
+                                                            "TextAlign": "Right",
+                                                            "VerticalAlign": "Middle",
+                                                            "BackgroundColor": "=Theme.Colors(2,5)"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.2811in",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                },
+                                                {
+                                                    "Item": {
+                                                        "Type": "textbox",
+                                                        "Name": "TextBox31",
+                                                        "DataElementName": "closing_balance",
+                                                        "CanGrow": true,
+                                                        "KeepTogether": true,
+                                                        "Value": "=Sum(Fields!closing_balance.Value)",
+                                                        "Style": {
+                                                            "PaddingLeft": "2pt",
+                                                            "PaddingRight": "2pt",
+                                                            "PaddingTop": "2pt",
+                                                            "PaddingBottom": "2pt",
+                                                            "Format": "n2",
+                                                            "TextAlign": "Right",
+                                                            "VerticalAlign": "Middle",
+                                                            "BackgroundColor": "=Theme.Colors(2,5)"
+                                                        },
+                                                        "Left": "0cm",
+                                                        "Top": "0cm",
+                                                        "Width": "1.448in",
+                                                        "Height": "0.75cm"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "Details": {
+                            "TableRows": [
+                                {
+                                    "Height": "0.25in",
+                                    "TableCells": [
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox3",
+                                                "DataElementName": "child",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!child.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Left"
+                                                },
+                                                "Width": "0.8021in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox6",
+                                                "DataElementName": "description",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!description.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt"
+                                                },
+                                                "Width": "4.6458in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox16",
+                                                "DataElementName": "opening_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!opening_balance.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "TextAlign": "Right"
+                                                },
+                                                "Width": "1.3125in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox18",
+                                                "DataElementName": "debit_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!debit_balance.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2"
+                                                },
+                                                "Left": "0cm",
+                                                "Top": "0cm",
+                                                "Width": "3.4cm",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox11",
+                                                "DataElementName": "credit_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!credit_balance.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "TextAlign": "Right"
+                                                },
+                                                "Width": "1.2811in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox7",
+                                                "DataElementName": "closing_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Fields!closing_balance.Value",
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "TextAlign": "Right"
+                                                },
+                                                "Width": "1.448in",
+                                                "Height": "0.25in"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Footer": {
+                            "TableRows": [
+                                {
+                                    "Height": "0.25in",
+                                    "TableCells": [
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox8",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Style": {
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt"
+                                                },
+                                                "Width": "0.8021in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox9",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "Total",
+                                                "Style": {
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "TextAlign": "Right",
+                                                    "VerticalAlign": "Middle"
+                                                },
+                                                "Width": "4.6458in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox17",
+                                                "DataElementName": "opening_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Sum(Fields!opening_balance.Value)",
+                                                "Style": {
+                                                    "Border": {
+                                                        "Color": "=Theme.Colors(5,1)"
+                                                    },
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "TextAlign": "Right",
+                                                    "VerticalAlign": "Middle",
+                                                    "WrapMode": "NoWrap"
+                                                },
+                                                "Width": "1.3125in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox19",
+                                                "DataElementName": "credit_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Sum(Fields!credit_balance.Value)",
+                                                "Style": {
+                                                    "Border": {
+                                                        "Color": "=Theme.Colors(5,1)"
+                                                    },
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "TextDecoration": "Overline",
+                                                    "VerticalAlign": "Middle",
+                                                    "WrapMode": "NoWrap"
+                                                },
+                                                "Left": "0cm",
+                                                "Top": "0cm",
+                                                "Width": "3.4cm",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox12",
+                                                "DataElementName": "debit_balance",
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Sum(Fields!debit_balance.Value)",
+                                                "Style": {
+                                                    "Border": {
+                                                        "Color": "=Theme.Colors(5,1)"
+                                                    },
+                                                    "FontWeight": "Bold",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Format": "n2",
+                                                    "VerticalAlign": "Middle",
+                                                    "WrapMode": "NoWrap"
+                                                },
+                                                "Width": "1.2811in",
+                                                "Height": "0.25in"
+                                            }
+                                        },
+                                        {
+                                            "Item": {
+                                                "Type": "textbox",
+                                                "Name": "TextBox10",
+                                                "DataElementName": "closing_balance",
+                                                "CustomProperties": [
+                                                    {
+                                                        "Name": "ReportStyleId",
+                                                        "Value": "847dc417-262b-4211-8d4b-5897584d4d85"
+                                                    },
+                                                    {
+                                                        "Name": "ReportStyleName",
+                                                        "Value": "Light 1 Accent 1 Minor"
+                                                    }
+                                                ],
+                                                "CanGrow": true,
+                                                "KeepTogether": true,
+                                                "Value": "=Sum(Fields!closing_balance.Value)",
+                                                "Style": {
+                                                    "Border": {
+                                                        "Color": "=Theme.Colors(5,1)"
+                                                    },
+                                                    "FontFamily": "=Theme.Fonts!MinorFont.Family",
+                                                    "FontSize": "=Theme.Fonts!MinorFont.Size",
+                                                    "FontStyle": "=Theme.Fonts!MinorFont.Style",
+                                                    "FontWeight": "=Theme.Fonts!MinorFont.Weight",
+                                                    "PaddingLeft": "2pt",
+                                                    "PaddingRight": "2pt",
+                                                    "PaddingTop": "2pt",
+                                                    "PaddingBottom": "2pt",
+                                                    "Color": "=Theme.Colors!Light1",
+                                                    "Format": "n2",
+                                                    "TextAlign": "Right",
+                                                    "VerticalAlign": "Middle",
+                                                    "BackgroundColor": "=Theme.Colors!Accent1",
+                                                    "WrapMode": "NoWrap"
+                                                },
+                                                "Width": "1.448in",
+                                                "Height": "0.25in"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "Top": "0.3125in",
+                        "Width": "10.8281in",
+                        "Height": "1.174in"
+                    }
+                ],
+                "Style": {
+                    "BackgroundColor": "=Theme.Colors!Light1",
+                    "BackgroundImage": {
+                        "Source": "Embedded",
+                        "MIMEType": "image/png"
+                    }
+                }
+            },
+            "PageFooter": {
+                "Height": "0.0278in"
+            }
+        }
+    ],
+    "DataSets": [
+        {
+            "Name": "DataSet",
+            "Fields": [
+                {
+                    "Name": "account",
+                    "DataField": "account[Number]"
+                },
+                {
+                    "Name": "child",
+                    "DataField": "child[Number]"
+                },
+                {
+                    "Name": "period",
+                    "DataField": "period[Number]"
+                },
+                {
+                    "Name": "description",
+                    "DataField": "description[String]"
+                },
+                {
+                    "Name": "opening_balance",
+                    "DataField": "opening_balance[Number]"
+                },
+                {
+                    "Name": "debit_balance",
+                    "DataField": "debit_balance[Number]"
+                },
+                {
+                    "Name": "credit_balance",
+                    "DataField": "credit_balance[Number]"
+                },
+                {
+                    "Name": "closing_balance",
+                    "DataField": "closing_balance[Number]"
+                },
+                {
+                    "Name": "update_date",
+                    "DataField": "update_date[Date]"
+                },
+                {
+                    "Name": "created_user",
+                    "DataField": "created_user[String]"
+                },
+                {
+                    "Name": "period_year",
+                    "DataField": "period_year[Number]"
+                }
+            ],
+            "Query": {
+                "DataSourceName": "distribution",
+                "CommandText": "jpath=$.*"
+            },
+            "CaseSensitivity": "Auto",
+            "KanatypeSensitivity": "Auto",
+            "AccentSensitivity": "Auto",
+            "WidthSensitivity": "Auto"
+        }
+    ]
+}
