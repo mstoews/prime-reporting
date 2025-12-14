@@ -1,4 +1,4 @@
-import { AR_EXPORTS, ActiveReportsModule, HtmlExportService, PdfExportService, TabularDataExportService, ViewerComponent } from '@grapecity/activereports-angular';
+import { AR_EXPORTS, ActiveReportsModule, HtmlExportService, PdfExportService, TabularDataExportService, ViewerComponent } from '@mescius/activereportsjs-angular';
 import { Component, OnInit, ViewChild, inject, signal, viewChild } from '@angular/core';
 
 import { ButtonModule } from 'primeng/button';
@@ -65,7 +65,7 @@ class JdRpt implements OnInit{
     }
 
     async loadReport() {
-        const reportResponse = await fetch('jd.rdlx-json');
+        const reportResponse = await fetch('journal-list.json');
         const report = await reportResponse.json();
         return report;
     }
