@@ -9,6 +9,6 @@ const licenseKey = 'localhost:43002,135653967381325#B1hQVZxNHMqBjSMFVV7wER8IDO6p
 
 registerLicense('Ngo9BigBOggjHTQxAR8/V1JFaF5cXGRCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWH1ednVURmVcUkR2WEFWYEg=');
 
-// Core.setLicenseKey(licenseKey);
+Core.setLicenseKey(licenseKey);
 
 bootstrapApplication(AppComponent, {...appConfig, providers: [provideZoneChangeDetection(), ...appConfig.providers]}).catch((err) => console.error(err));

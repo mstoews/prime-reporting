@@ -1,0 +1,110 @@
+import { EMPTY, Observable, Subject, defer, exhaustMap, from } from 'rxjs';
+import { Injectable, computed, inject, signal } from '@angular/core';
+import { addDoc, collection, limit, orderBy, query, updateDoc } from 'firebase/firestore';
+import { filter, map, retry } from 'rxjs/operators';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+
+import { AuthService } from 'app/services/auth.service';
+import { FIRESTORE } from 'app/app.config';
+import { collectionData } from 'rxfire/firestore';
+
+export interface Message {
+  author: string;
+  content: string;
+  created: string;
+}
+
+interface MessageState {
+  messages: Message[];
+  error: string | null;
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class MessageService {
+  private firestore = inject(FIRESTORE);
+  private authService = inject(AuthService);
+  private authUser$ = toObservable(this.authService.user);
+
+
+  // sources
+  messages$ = this.getMessages().pipe(
+    // restart stream when user re-authenticates
+    retry({
+      delay: () => this.authUser$.pipe(filter((user) => !!user)),
+    })
+  );
+  add$ = new Subject<Message['content']>();
+  error$ = new Subject<string>();
+  logout$ = this.authUser$.pipe(filter((user) => !user));
+
+  // state
+  private state = signal<MessageState>({
+    messages: [],
+    error: null,
+  });
+
+  // selectors
+  messages = computed(() => this.state().messages);
+  error = computed(() => this.state().error);
+
+  constructor() {
+    // reducers
+    this.messages$.pipe(takeUntilDestroyed()).subscribe((messages) =>
+      this.state.update((state) => ({
+        ...state,
+        messages,
+      }))
+    );
+
+    this.add$.pipe(
+      takeUntilDestroyed(),
+      exhaustMap((message) => this.addMessage(message))
+    ).subscribe({
+      error: (err) => {
+        console.debug(err);
+        this.error$.next('Failed to send message');
+      },
+    });
+
+    this.logout$.pipe(
+      takeUntilDestroyed())
+      .subscribe(() =>
+        this.state.update((state) => ({ ...state, messages: [] }))
+      );
+
+    this.error$
+      .pipe(takeUntilDestroyed())
+      .subscribe((error) =>
+        this.state.update((state) => ({ ...state, error }))
+      );
+  }
+
+  private SendHttpRequest() {
+
+  }
+
+  private getMessages() {
+    const messagesCollection = query(
+      collection(this.firestore, 'messages'),
+      orderBy('created', 'desc'),
+      limit(50)
+    );
+
+    return collectionData(messagesCollection, { idField: 'id' }).pipe(
+      map((messages) => [...messages].reverse())
+    ) as Observable<Message[]>;
+  }
+
+  private addMessage(message: string) {
+    const newMessage = {
+      author: this.authService.user()?.email,
+      content: message,
+      created: Date.now().toString(),
+    };
+
+    const messagesCollection = collection(this.firestore, 'messages');
+    return defer(() => addDoc(messagesCollection, newMessage));
+  }
+}

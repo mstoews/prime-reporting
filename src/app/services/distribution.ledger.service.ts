@@ -8,8 +8,8 @@ import {
 import { Injectable, inject } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { ITBParams } from '../models/journals';
-import { environment } from '../../environments/environment';
+import { ITBParams } from 'app/models/journals';
+import { environment } from 'environments/environment';
 import { shareReplay } from 'rxjs';
 
 @Injectable({
@@ -19,6 +19,7 @@ export class DistributionLedgerService {
     http = inject(HttpClient);
     rootUrl = environment.baseUrl;
     private bLoading = false;
+
 
 
     getDistributionReportByPrdAndYear(params: ITBParams) {
@@ -61,7 +62,7 @@ export class DistributionLedgerService {
 
 
     getDistributionByPrdAndYear(params: IDistributionParams) {
-        return this.http.post<IDistributionLedgerReport[]>(`${this.rootUrl}/v1/dist_list_by_prd`, params).pipe(shareReplay({ bufferSize: 1, refCount: true }));
+        return this.http.post<IDistributionLedgerReport[]>(`${this.rootUrl}/v1/`, params).pipe(shareReplay({ bufferSize: 1, refCount: true }));
     }
 
     getLoading() {

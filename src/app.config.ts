@@ -8,8 +8,12 @@ import Aura from '@primeuix/themes/aura';
 import { appRoutes } from './app.routes';
 import { authTokenInterceptor } from './auth.token.interceptor';
 import { environment } from './environments/environment';
+import { initializeApp } from 'firebase/app';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
+import { provideToastr } from 'ngx-toastr';
+
+const app = initializeApp(environment.firebase);
 
 export const AUTH = new InjectionToken('Firebase auth', {
   providedIn: 'root',
@@ -33,7 +37,10 @@ export const appConfig: ApplicationConfig = {
         provideHttpClient(withFetch()),
         provideAnimationsAsync(),
         importProvidersFrom(ActiveReportsModule),
+        provideToastr(),
         providePrimeNG({ theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } } })
     ]
 };
+
+
 
